@@ -1,1 +1,10 @@
-
+#Network and Network Drive
+if (test-connection -targetname et.local = true) {
+    if (Get-PSDrive X -ErrorAction -SilentlyContinue) {
+        Write-Host 'X Drive connected'
+    } else {
+        Write-Host 'Unable to connect to network drive. Please contact IT Support'
+    }
+} else {
+    Write-Host 'Check network connection. Connect to VPN'
+}
